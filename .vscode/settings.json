@@ -1,0 +1,46 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.bbl": true,
+        "**/*.aux": true,
+        // "**/*.log": true,
+        "**/*.out": true,
+        "**/*.fls": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.synctex.gz": true,
+        "**/*.toc": true,
+        "**/*.lof": true,
+        "**/*.lot": true,
+        "**/*.lol   ": true,
+    },
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    // Định nghĩa công cụ "pdflatex"
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex", // Đổi tên thành pdflatex
+            "command": "pdflatex", // Đổi lệnh thành pdflatex
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "%DOC%"
+            ]
+        }
+    ],
+    // Đặt "pdflatex" làm công thức build mặc định
+    "latex-workshop.latex.recipeDefault": "pdflatex",
+    // Định nghĩa "công thức" build (chỉ cần chạy pdflatex 1 lần là đủ)
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdfLaTeX", // Đổi tên công thức
+            "tools": [
+                "pdflatex" // Dùng công cụ pdflatex đã định nghĩa ở trên
+            ]
+        }
+    ],
+    // Mở file PDF trong tab của VS Code
+    "latex-workshop.view.pdf.viewer": "tab",
+}

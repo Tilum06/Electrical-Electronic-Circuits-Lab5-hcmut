@@ -1,0 +1,78 @@
+% Speed-up compilation
+\documentclass[twoside,final]{hcmut-report}
+\usepackage{codespace}
+
+% Draft watermark
+% https://github.com/callegar/LaTeX-draftwatermark
+
+% Encodings
+\usepackage{gensymb,textcomp}
+
+% Better tables
+% Wide tables go to https://tex.stackexchange.com/q/332902
+\usepackage{array,longtable,multicol,multirow,siunitx,tabularx}
+
+% Better enum
+\usepackage{enumitem}
+
+% Graphics
+\usepackage{graphicx}
+\usepackage{caption,float}
+
+% Add options for figures, like max width, framing, etc.
+\usepackage[export]{adjustbox}
+
+% References
+% Use \Cref{} instead of \ref{}
+\usepackage[nameinlink]{cleveref}
+
+% FOR DEMONSTRATION PURPOSES, REMOVE IN PRODUCTION
+\usepackage{mwe}
+
+% Sub-preambles
+% https://github.com/MartinScharrer/standalone
+
+% Configurations
+\coursename{Electrical Electronic Circuits}
+\reporttype{Lab Report}
+\title{Lab 5}
+\advisor{& Phạm Công Thái &}
+\stuname{%
+  & Nguyễn Phúc Vĩnh & 2414001 \\
+  & Trần Văn Minh Triết & 2413603 \\
+}
+
+% ===================================================
+% NỘI DUNG CHÍNH
+% ===================================================
+\begin{document}
+
+\coverpage
+
+\AtBeginDocument{\counterwithin{lstlisting}{section}}
+
+% Tạo mục lục và các danh sách
+
+\pagestyle{plain}          
+\pagenumbering{roman}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\lstlistoflistings
+
+\clearpage
+
+\pagenumbering{arabic}      % 1, 2, 3, ...
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+% Nội dung các chương
+
+\input{chapters/chapter1.tex}
+
+\input{chapters/chapter2.tex}
+
+\input{chapters/chapter3.tex}
+
+\end{document}

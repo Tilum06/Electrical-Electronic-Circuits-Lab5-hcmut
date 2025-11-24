@@ -4,3 +4,45 @@ Operational amplifiers are used with degenerative (or negative) feedback which r
 
 This feedback is always degenerative (negative). In other words, the feedback signal always opposes the effects of the original input signal. One result of degenerative feedback is that the inverting and non-inverting inputs to the operational amplifier will be kept at the same potential.
 
+Closed-loop circuits can be of the inverting configuration or non-inverting configuration.
+
+\subsection{Non inverting configuration}
+
+The typical circuit for this configuration is shown in the figure bellow:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphics/question/c2_ex1.png}
+    \caption{Non inverting configuration}
+    \label{fig:chap2_question_ex1}
+\end{figure}
+
+The new component, named also OPAMP (Operational Amplifier) is easily found in the favorite list of the PSPICE.
+
+In order to explain the 4V at the ouput, it is obviously that $V(+) = V(-) = 2V$ in a closed loop configuration. Therefore, from a resistor bridge at the output, $V_{out} = 4V$. 
+
+\subsection{Inverting configuration}
+
+In this configuration, the output is connected directly to a pin of the opamp as follow:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphics/question/c2_ex2.png}
+    \caption{Inverting configuration}
+    \label{fig:chap2_question_ex2}
+\end{figure}
+
+As the output voltage is negative, which is inverted to the input, the name of this circuit is the invert connection. Students are proposed to perform calculations to confirm the output, which is -2V .
+
+Calculation:
+
+Since the circuit have negative feedback, we have $V(+) = V(-) = 0V$. 
+
+Therefore, the current flowing through $R_{14}$ is:
+
+\[ I = \frac{V_{in} - V(-)}{R_{14}} = \frac{2 - 0}{1k} = 2~mA \]
+
+As no current flows into the opamp pin, the same current flows through $R_{13}$, so the output voltage is:
+\[ V_{out} = V(-) - I \cdot R_{13} = 0 - 2~mV \cdot 1k = -2V \]
+
+

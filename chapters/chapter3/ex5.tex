@@ -1,0 +1,78 @@
+\subsection{Low Pass Filter}
+
+Low pass filter is a filter which passes all frequencies from 0Hz (DC current) to upper cut-off frequency $f_H$ and rejects any signals above this frequency. A picture to demonstrate a low pass filter behavior is shown in the figure bellow:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphics/question/c3_ex5_principles.png}
+    \caption{Low pass filter principles}
+    \label{fig:chap3_question_ex5_principles}
+\end{figure}
+
+\noindent Similar to the closed loop configuration, there also 2 types of low pass filter, including the inverting and non-inverting low pass filter. The figure bellow is an inverting low pass filter. The cut-off frequency is determined by this equation:
+
+\[
+f_H = \frac{1}{2 \pi R_2 C}
+\]
+
+By applying the value of R2 = 10K Ohm and C = 1nF , the cut-off frequency is around 16K Hz. In order to see the results, students are proposed to run the AC Sweep simulation profile (\textbf{Linear Type, Start and Stop frequency are 1Hz and 50kHz, 200 points}), as follows:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{graphics/question/c3_ex5_ilpf_sch.png}
+    \caption{Inverting low pass filter}
+    \label{fig:chap3_question_ex5_ilpf_sch}
+\end{figure}
+
+\vspace{1cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_e5_simprofile.png}
+    \caption{AC Sweep simulation profile}
+    \label{fig:chap3_question_ex5_simprofile}
+\end{figure}
+
+\vspace{1cm}
+
+The final results can be archived like the figure bellow:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_e5_simresult.png}
+    \caption{Simulation results}
+    \label{fig:chap3_question_ex5_simresult}
+\end{figure}
+
+\noindent\textbf{It is said that the cut-off frequency point having the gain reduced 3dB.} The gain at 0Hz
+is 10 (input voltage is 2V and output voltage is 20V), or $20\log(10)=20\ \mathrm{dB}$, meanwhile, the
+gain at 16kHz is 7 (input voltage is 2V and output voltage is 14V), or $20\log(7)\approx16.9\ \mathrm{dB}$.
+
+\noindent The second type of a low pass filter, the non-inverting configuration, is presented as follows:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{graphics/question/c3_ex5_nilpf_sch.png}
+    \caption{Non-inverting low pass filter}
+    \label{fig:chap3_question_ex5_nlpf_sch}
+\end{figure}
+
+\textbf{Students are proposed to calculate the value of R and C to have the amplifier factor equal to 10 and the cut-off frequency is the same as the previous example. The simulation result with AC Sweep mode is required to plot in this report as well.}
+
+\textbf{Calculation:}
+
+To have the amplifier factor equal to 10, the ratio between R2 and R1 is calculated as follows:
+\[A_v = 1 + \frac{R_2}{R_3} = 10 \Rightarrow \frac{R_2}{R_3} = 9\]
+By choosing $R_2 = 9k\Omega$ and $R_3 = 1k\Omega$, the cut-off frequency is calculated as follows:
+\[f_H = \frac{1}{2 \pi R_2 C} = 16kHz\] 
+\[ \Longrightarrow  C = \frac{1}{2 \pi R_2 f_H} = \frac{1}{2 \pi \cdot 9k\Omega \cdot 16kHz} \approx 1.1nF\]
+
+The simulation result is presented as follows:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/ex5_sim.png}
+    \caption{Simulation results of non-inverting low pass filter}
+    \label{fig:chap3_question_ex5_simresult}
+\end{figure}
+
+The gain at 0Hz is 10 (input voltage is 2V and output voltage is 20V), or $20\log(10)=20\ \mathrm{dB}$, meanwhile, the gain at 16kHz is 7 (input voltage is 2V and output voltage is 14V), or $20\log(7)\approx16.9\ \mathrm{dB}$.

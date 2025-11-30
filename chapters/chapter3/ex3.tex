@@ -1,0 +1,43 @@
+\subsection{Voltage Follower with Gain}
+
+This basic circuit is not limited to the unity-gain configuration. As with a non-buffered op-amp, you can insert resistors into the feedback path to create overall gain from the input to the load voltage. Here is the non-unity-gain version of the circuit:
+
+\noindent Students are proposed to implement this circuit on PSPICE with input is 2V and the gain is 3. The voltage supply for the load side is 12VDC. Value of $R_{LOAD}$ is 1K.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex3.png}
+    \caption{Opamp follower with gain for the output}
+    \label{fig:chap3_question_ex3}
+\end{figure}
+
+The simulation results in PSPICE (bias configuration) are presented here. Moreover, a short explanations are required in this report to explain the gain of the output follower voltage.
+
+\textbf{Simulation results:}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/ex3_sim_1k2k.png}
+    \caption{Simulation results with $R_1 = 1K\Omega$ and $R_2 = 2K\Omega$}
+    \label{fig:chap3_ex3_sim_1k2k}
+\end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/ex3_sim_5k10k.png}
+    \caption{Simulation results with $R_1 = 5K\Omega$ and $R_2 = 10K\Omega$}
+    \label{fig:chap3_ex3_sim_5k10k}
+\end{figure}
+
+\textbf{Explanation:}
+
+Both simulations use the same input voltage $V_{in} = 2\,V$ and the same resistor ratio 
+$\dfrac{R_2}{R_1} = 2$. Therefore, the voltage gain is:
+\[
+    A_v = 1 + \dfrac{R_2}{R_1} = 1 + 2 = 3
+\]
+So the output voltage is:
+\[
+    V_{out} = A_v \cdot V_{in} = 3 \cdot 2\,V = 6\,V   
+\]
+This result is confirmed by both simulations in \cref{fig:chap3_ex3_sim_1k2k} and \cref{fig:chap3_ex3_sim_5k10k}.

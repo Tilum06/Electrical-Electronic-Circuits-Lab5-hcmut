@@ -1,3 +1,56 @@
 \subsection{Voltage Follower}
 
 Voltage follower is one of the simplest uses of an operational amplifier, where the output voltage is exactly same as the input voltage applied to the circuit. In other words, the gain of a voltage follower circuit is unity. The connections are proposed as follows:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex1.png}
+    \caption{Opamp follower circuit}
+    \label{fig:c2_ex1}
+\end{figure}
+
+\noindent A voltage follower has low output impedance and extremely high input impedance, and this makes it a simple and effective solution to problematic impedance relationships. If a high-output-impedance sub-circuit must transfer a signal to a low-input-impedance sub-circuit, a voltage follower placed between these two sub-circuits will ensure that the full voltage is delivered to the load.\\
+
+\noindent\textbf{Students are propose to run the simulation with bias mode to confirm that $V_{OUT} =
+V(+)$. The feedback resistance is also required to change.}
+
+\textbf{Simulation results:}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/ex1_sim_1k.png}
+    \caption{Simulation result with R = 1k$\Omega$}
+    \label{fig:ex1_sim_1k}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/ex1_sim_2k.png}
+    \caption{Simulation result with R = 2k$\Omega$}
+    \label{fig:ex1_sim_2k}
+\end{figure}
+
+\noindent Your calculations are presented here to prove $V_{OUT} = V(+)$ with any value of R15.
+
+\textbf{Solution:}
+
+The general voltage gain of a non-inverting operational amplifier is given by:
+\[
+    A_v = 1 + \frac{R_f}{R_{in}}
+\]
+
+For the voltage follower configuration:
+\begin{itemize}
+    \item $R_f = 0$ (short-circuited feedback)
+    \item $R_g \rightarrow \infty$ (no resistor connected to ground)
+\end{itemize}
+
+Substituting these values into the gain formula:
+\[
+    A_v = 1 + \frac{0}{\infty} = 1 + 0 = 1
+\]
+
+Therefore, we confirm that:
+\[
+    V_{OUT} = A_v \cdot V_{IN} = 1 \cdot V_{IN} = V_{IN}
+\]

@@ -1,0 +1,58 @@
+\subsection{Comparator with Hysteresis (Schmitt Trigger)}
+
+The two resistors R1 and R2 act only as a "pure" attenuator (voltage divider). The input loop acts as a simple series voltage summer that adds a part of the output voltage in series to the circuit input voltage. This series positive feedback creates the needed hysteresis that is controlled by the proportion between the resistances of R1 and the whole resistance (R1 and R2). The effective voltage applied to the op-amp input is floating so the op-amp must have a differential input.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex7_inSchmitt.png}
+    \caption{Schmitt Trigger Circuit}
+    \label{fig:schmitt_trigger}
+\end{figure}
+
+The circuit is named inverting since the output voltage always has an opposite sign to the input voltage when it is out of the hysteresis cycle (when the input voltage is above the high threshold or below the low threshold). However, if the input voltage is within the hysteresis cycle (between the high and low thresholds), the circuit can be inverting as well as non-inverting. The output voltage is undefined and it depends on the last state so the circuit behaves like an elementary latch.
+
+In PSPice, this trigger is implemented as follows, with 3 voltage markers:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex7_inSchmitt_pspice.png}
+    \caption{Schmitt Trigger Circuit in PSPice}
+    \label{fig:schmitt_trigger_pspice}
+\end{figure}
+
+The OPAM device is modified in the Properties windows (right click on the component and chose Edit Properties or double click on the component), in order to set the VPOS and VNEG to +5V and -5V, as follows:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex7_sim_setting.png}
+    \caption{Schmitt trigger in PSPICE}
+    \label{fig:schmitt_trigger_sim_setting}
+\end{figure}
+
+The simulation profile in this exercise is the Time Domain, and is configured as follows:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex7_sim_profile.png}
+    \caption{Simulation profile}
+    \label{fig:schmitt_trigger_sim_profile}
+\end{figure}
+
+Finally, the simulation results can be archived as follows:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex7_sim_result.png}
+    \caption{Schmitt trigger simulation results}
+    \label{fig:schmitt_trigger_sim_result}
+\end{figure}
+
+\textbf{Students are proposed to explain the signal at the output of the opamp. Why the signal
+is toggled at +4 and -4V.}
+
+\textbf{Explaination:}
+
+The output signal is toggled at $+4 V$ and $-4 V$ due to the positive feedback created by the resistor network R1 and R2. This feedback shifts the switching thresholds of the comparator from 0 V to two distinct values, forming a hysteresis window. When the output saturates at $+5 V$, the feedback sets the upper threshold at $+4 V$. Similarly, when the output saturates at $-5 V$, the lower threshold becomes $-4 V$. As a result, the output changes state only when the input voltage exceeds these thresholds, ensuring stable switching and noise immunity.
+
+
+

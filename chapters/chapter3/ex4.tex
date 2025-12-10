@@ -1,0 +1,59 @@
+\subsection{Summing Amplifier}
+Students are proposed to implement following schematic in PSPICE and run the simulation
+with $R1 = 1K, R2 = 2K, R3 = 5K, Rf = 9K, Ri = 1K$. Their inputs are $V_1 = 1V$,
+$V_2 = 2V$ and $V_3 = 3V$. This circuit is a non inverting summing configuration using
+opamp.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex4.png}
+    \caption{Non inverse summing using OPAMP}
+    \label{fig:chap3_question_ex4}
+\end{figure}
+
+Students are proposed to design the schematic and place the results in this report.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/ex4_sim_1.png}
+    \caption{Simulation}
+    \label{fig:chap3_solution_ex4}
+\end{figure}
+
+To prevent saturation at the OpAmp input, we set the input voltage to 0, using KVL:
+
+\[
+\frac{V_{in} - V_1}{R_1} + \frac{V_{in} - V_2}{R_2} + \frac{V_{in} - V_3}{R_3} = 0 
+\iff \frac{V_{in} - 1}{1} + \frac{V_{in} - 2}{2} + \frac{V_{in} - 3}{5} = 0 
+\Rightarrow V_{in} = 1.53 \text{ V}
+\]
+
+\[
+A = 1 + \frac{R_f}{R_i} = 1 + \frac{9}{1} = 10
+\]
+
+\[
+V_{out} = A \cdot V_{in} = 10 \cdot 1.53 = 15.3 \text{ V}
+\]
+
+The second type of the summing amplifier is proposed as follows (Inverse Summing):
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex4_2.png}
+    \caption{Inverse summing using OPAMP}
+    \label{fig:chap3_question_ex4_2}
+\end{figure}
+
+Students are proposed to do the same steps above, with $R_1$ = $1K$, $R_2 = 2K$, $R_3 =
+10K$ and $V_1 = 1V$, $V_2 = 5V$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/ex4_sim_2.png}
+    \caption{Simulation}
+    \label{fig:chap3_solution_ex4_2}
+\end{figure}
+
+\[I_1 = \frac{V_1 - V_{in}}{R_1} = \frac{1 - 0}{1K} = 1mA\]
+\[I_2 = \frac{V_2 - V_{in}}{R_2} = \frac{5 - 0}{2K} = 2.5mA\]
+\[V_{OUT} = R_3 \cdot (I_1 + I_2) = 10K \cdot (1mA + 2.5mA) = 35V\]

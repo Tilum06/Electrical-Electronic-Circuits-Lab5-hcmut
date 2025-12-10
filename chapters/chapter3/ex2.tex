@@ -1,0 +1,34 @@
+\subsection{High-Current Voltage Follower}
+
+The voltage follower's low output impedance makes it a good circuit for driving current
+into a low-impedance load, but it's important to remember that most op-amps are not
+designed to deliver large output currents. The most basic circuit for buffering an op-amp's
+output current is the following:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/question/c3_ex2.png}
+    \caption{Opamp follower circuit}
+    \label{fig:chap3_question_ex2}
+\end{figure}
+
+The voltage at the positive pin of the Opamp is copied to $V_{OUT}$. In this schematic, R16 is
+used to simulate a load device, which can be a motor or an high power LED. However, in
+this case, there is a high current can pass the load.\\
+Students are proposed to run the simulation with bias configuration, capture the results
+and place them in the report.\\
+Finally, your computations go here to explain the results.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/ex2_sim.png}
+    \caption{The bias point simulation}
+    \label{fig:chap3_solution_ex2}
+\end{figure}
+
+
+We have: $V_{(+)} = V_{(-)} = V_E = 3V$
+\[I_E = \frac{V_E}{R16} = \frac{3V}{1k\Omega} = 3mA\]
+\[I_C = \frac{\beta}{\beta + 1} I_E = \frac{100}{101} \cdot 3mA = 2.97mA\]
+\[I_B = I_E - I_C = 3mA - 2.97mA = 0.03mA\]
+\[V_B = V_E + 0.7V = 3V + 0.7V = 3.7V\]
